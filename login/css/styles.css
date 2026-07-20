@@ -1,0 +1,372 @@
+/* Variables de CSS para un tema consistente y fácil de cambiar */
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --error-color: #ef4444;
+    --success-color: #10b981;
+    --border-color: #e5e7eb;
+    --focus-ring: rgba(79, 70, 229, 0.2);
+}
+
+/* Reseteo básico de márgenes y box-sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centrado del contenido en toda la pantalla */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-main);
+}
+
+/* Tarjeta principal del login */
+.login-container {
+    background-color: var(--card-bg);
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    animation: slideUp 0.5s ease-out; /* Animación de entrada suave */
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos de los inputs */
+input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s; /* Transición suave para estados (hover/focus) */
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* Clase dinámica que agregará JS si hay un error en el input */
+input.input-error {
+    border-color: var(--error-color);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Estilo del texto de error bajo los inputs */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    min-height: 1.1em;
+    display: none;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+/* Estilos del botón principal */
+button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:active {
+    transform: scale(0.98); /* Efecto sutil al hacer clic */
+}
+
+/* Estilo del mensaje global (credenciales inválidas o éxito) */
+.global-message {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    display: none; /* Oculto por defecto */
+}
+
+.global-message.success {
+    display: block;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+}
+
+.global-message.error {
+    display: block;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error-color);
+}
+
+/* DASHBOARD STYLES */
+body.dashboard-body {
+    display: block; /* Overrides the flex centering for login */
+    background-color: var(--bg-color);
+    margin: 0;
+    min-height: 100vh;
+}
+
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar Slider */
+.sidebar {
+    width: 250px;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.nav-item {
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: var(--focus-ring);
+    color: var(--primary-color);
+}
+
+/* Main Area */
+.main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Header */
+.top-header {
+    background-color: var(--card-bg);
+    height: 70px;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-right h1 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin: 0;
+}
+
+/* Logout Button */
+.logout-btn {
+    width: auto;
+    background-color: transparent;
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+.logout-btn:hover {
+    background-color: var(--error-color);
+    color: white;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    padding: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Dashboard Grid y Cards Estadísticas */
+.welcome-header {
+    margin-bottom: 2rem;
+}
+
+.welcome-header h2 {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.welcome-header p {
+    color: var(--text-muted);
+}
+
+.dashboard-layout-main {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.dashboard-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reducido para hacer las cards más pequeñas */
+    gap: 1.5rem;
+}
+
+.fichas-container {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    padding: 1.25rem; /* Ligeramente más pequeño el padding */
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Variantes de colores para las tarjetas */
+.stat-card.warning { border-left-color: #f59e0b; } /* Naranja/Amarillo */
+.stat-card.info { border-left-color: #3b82f6; }    /* Azul */
+.stat-card.success { border-left-color: #10b981; } /* Verde */
+.stat-card.danger { border-left-color: #ef4444; }  /* Rojo */
+.stat-card.purple { border-left-color: #8b5cf6; }  /* Morado */
+.stat-card.teal { border-left-color: #14b8a6; }    /* Teal / Verde azulado */
+.stat-card.pink { border-left-color: #ec4899; }    /* Rosa */
+
+/* Tarjeta de Fichas */
+.stat-card.fichas-card {
+    height: 100%;
+}
+
+.fichas-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fichas-list li {
+    background-color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.fichas-list li:hover {
+    transform: translateX(5px);
+    background-color: #fce7f3; /* Rosa muy claro para hacer juego con el borde pink */
+    border-color: #fbcfe8;
+}
+
+.fichas-list .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #ec4899; /* Rosa pink */
+    border-radius: 50%;
+    margin-right: 0.75rem;
+}

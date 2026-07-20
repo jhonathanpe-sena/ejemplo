@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <!-- Sidebar (Slider) -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Menú</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">Inicio</a>
+                <a href="#" class="nav-item">Reportes</a>
+                <a href="#" class="nav-item">Ajustes</a>
+            </nav>
+        </aside>
+
+        <!-- Main Area -->
+        <div class="main-area">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <button id="logoutBtn" class="logout-btn">Salir</button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="content-wrapper" id="mainContent">
+                <div class="welcome-header" id="welcome-header">
+                    <!-- aqui se cargara un saludo + el nombre del usuario con javascript   -->
+                </div>
+
+                <div class="dashboard-layout-main">
+                    <!-- Contenedor donde se inyectarán las cards dinámicamente -->
+                    <div id="dashboardGrid" class="dashboard-grid"></div>
+                    <!-- Contenedor exclusivo para Fichas -->
+                    <div id="fichasContainer" class="fichas-container"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+
+</html>
